@@ -70,6 +70,7 @@ class LinkedListScratch {
                 Node newNode = new Node(data);
                 newNode.next = currentNode.next;
                 currentNode.next = newNode;
+                this.size++;
                 return;
             }
             currentNode = currentNode.next;
@@ -79,6 +80,11 @@ class LinkedListScratch {
     public void removeAValue(String target) {
         Node prevNode = this.head;
         Node currentNode = this.head.next;
+         if (this.head == null) {
+            System.out.println("THis list is already empty");
+            return;
+        }
+        this.size--;
         if (prevNode.data == target) {
             this.head = prevNode.next;
             return;
